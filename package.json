@@ -17,6 +17,7 @@
     "vuetify": "^2.6.10"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/vuetify": "^1.12.3"
   }
 }
