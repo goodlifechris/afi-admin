@@ -329,7 +329,7 @@
           redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/api/speaker/", requestOptions)
+        fetch(process.env.BASE_URL+'/api/speaker/', requestOptions)
           .then(response => response.text())
           .then(result => {
             console.log(result)
@@ -350,7 +350,7 @@
           redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/api/speaker/"+id, requestOptions)
+        fetch(process.env.BASE_URL+'/api/speaker/'+id, requestOptions)
           .then(response => response.text())
           .then(result => this.succcessUpdate(result))
           .catch(error => this.errorUpdate(error));
@@ -364,7 +364,7 @@
           redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/api/speaker/"+id, requestOptions)
+        fetch(process.env.BASE_URL+'/api/speaker/'+id, requestOptions)
           .then(response => response.text())
           .then(result => {
               this.$toast.success("Successfully deleted")
@@ -424,7 +424,7 @@
             redirect: 'follow'
           };
 
-          fetch('http://localhost:3000/api/speaker', requestOptions)
+          fetch(process.env.BASE_URL+'/api/speaker', requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)

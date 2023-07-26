@@ -99,7 +99,7 @@
             redirect: 'follow'
           };
 
-          fetch('http://localhost:3000/api/delegate', requestOptions)
+          fetch(process.env.BASE_URL+'/api/delegate', requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)
