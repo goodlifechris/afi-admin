@@ -228,6 +228,7 @@
         title:'',
         image:''
       },
+      baseUrl:'https://afi-backend-wcomf.ondigitalocean.app/'
     }),
 
     computed: {
@@ -274,7 +275,7 @@
 
           this.loadingPhoto = true
 
-          fetch("http://localhost:3000/api/speaker/updateMe", requestOptions)
+          fetch(this.baseUrl+'api/speaker/updateMe', requestOptions)
             .then(response => response.text())
             .then(result => {
               this.image = JSON.parse(result).data.Location
@@ -329,7 +330,7 @@
           redirect: 'follow'
         };
 
-        fetch(process.env.BASE_URL+'/api/speaker/', requestOptions)
+        fetch(this.baseUrl+'api/speaker/', requestOptions)
           .then(response => response.text())
           .then(result => {
             console.log(result)
@@ -350,7 +351,7 @@
           redirect: 'follow'
         };
 
-        fetch(process.env.BASE_URL+'/api/speaker/'+id, requestOptions)
+        fetch(this.baseUrl+'api/speaker/'+id, requestOptions)
           .then(response => response.text())
           .then(result => this.succcessUpdate(result))
           .catch(error => this.errorUpdate(error));
@@ -364,7 +365,7 @@
           redirect: 'follow'
         };
 
-        fetch(process.env.BASE_URL+'/api/speaker/'+id, requestOptions)
+        fetch(this.baseUrl+'/api/speaker/'+id, requestOptions)
           .then(response => response.text())
           .then(result => {
               this.$toast.success("Successfully deleted")
@@ -424,7 +425,7 @@
             redirect: 'follow'
           };
 
-          fetch(process.env.BASE_URL+'/api/speaker', requestOptions)
+          fetch(this.baseUrl+'api/speaker', requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)
