@@ -174,6 +174,7 @@
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       search: '',
+      baseUrl:"https://afi-backend-wcomf.ondigitalocean.app/",
       delegates:[],
       editedIndex: -1,
       editedItem: {
@@ -259,7 +260,7 @@
           redirect: 'follow'
         };
 
-        fetch(process.env.BASE_URL+'/api/delegate/', requestOptions)
+        fetch(this.baseUrl+'api/delegate/', requestOptions)
           .then(response => response.text())
           .then(result => {
             console.log(result)
@@ -295,7 +296,7 @@
           redirect: 'follow'
         };
 
-        fetch(process.env.BASE_URL+'api/delegate/'+id, requestOptions)
+        fetch(this.baseUrl+'api/delegate/'+id, requestOptions)
           .then(response => response.text())
           .then(result => {
               this.$toast.success("Successfully deleted")
@@ -354,7 +355,7 @@
             redirect: 'follow'
           };
 
-          fetch(process.env.BASE_URL+'/api/delegate', requestOptions)
+          fetch(this.baseUrl+'api/delegate', requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)

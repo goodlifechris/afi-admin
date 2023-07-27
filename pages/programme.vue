@@ -13,12 +13,12 @@
           <v-tab-item>
             <v-row>
 
-            <v-col cols="4">
+            <v-col cols="5">
               <ProgrammeEventForm/>
             </v-col>
-    <v-col cols="8">
-             <TimelineProgramme/>
-
+    <v-col cols="">
+<!--             <TimelineProgramme/>-->
+      <EventCards/>
     </v-col>
 
             </v-row>

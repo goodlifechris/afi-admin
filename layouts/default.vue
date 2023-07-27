@@ -30,6 +30,8 @@
       :clipped-left="clipped"
       fixed
       app
+      dark
+      color="#1976d2"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
