@@ -365,7 +365,7 @@
           redirect: 'follow'
         };
 
-        fetch(this.baseUrl+'/api/speaker/'+id, requestOptions)
+        fetch(this.baseUrl+'api/speaker/'+id, requestOptions)
           .then(response => response.text())
           .then(result => {
               this.$toast.success("Successfully deleted")

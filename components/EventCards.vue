@@ -17,7 +17,23 @@
               {{card.title}}
             </v-card-title>
             <v-card-text class="text-left">{{card.description}}</v-card-text>
-          </v-card>
+            <v-card-actions>
+              <v-avatar
+                size="60"
+                v-for="speaker in card.speakers"
+                class="mr-3"
+                :key="speaker._id">
+              <v-img
+                sizes="70"
+                :src=speaker.image
+                alt="John"
+              ></v-img>
+            </v-avatar>
+              <v-spacer></v-spacer>
+              <v-btn outlined @click="editTItem">Edit</v-btn>
+              <v-btn outlined @click="deleteItem" >Delete</v-btn>
+            </v-card-actions>
+                 </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -36,6 +52,11 @@ computed: {
     return this.$store.state.events;
   }
 },
+  methods:{
+    editTItem(event,value){
+      this.$emit('clicked', value)
+    }
+  },
   mounted() {
     this.$store.dispatch('getEvents')
   }
