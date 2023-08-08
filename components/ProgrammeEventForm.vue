@@ -282,7 +282,7 @@
             redirect: 'follow'
           };
 
-          fetch(process.env.BASE_URL+'/api/session', requestOptions)
+          fetch(this.baseUrl+'api/session', requestOptions)
             .then(response => response.json())
             .then(result => {
                 console.log(result)
