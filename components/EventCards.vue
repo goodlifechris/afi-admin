@@ -52,7 +52,6 @@ computed: {
   }
 },
   methods:{
-
     editTItem(event,value){
       this.$emit('clicked', value)
     },
