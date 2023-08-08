@@ -5,33 +5,32 @@
       <v-row dense>
         <v-col
           v-for="card in events"
-          :key="card.name"
+          :key="card._id"
           cols="12"
         >
           <v-card color="#2196f3" dark>
             <v-card-subtitle>
             <span class="text-left">
-              <v-icon small class=" float-left align-left pr-2 " >mdi-clock-outlined</v-icon><div>{{card.startTime}} - {{card.endTime}} </div></span>
+              <v-icon small class=" float-left align-left pr-2 ">mdi-clock-outlined</v-icon>{{card.time}} </span>
             </v-card-subtitle>
             <v-card-title class="pt-0 pb-0">
               {{card.title}}
             </v-card-title>
             <v-card-text class="text-left">{{card.description}}</v-card-text>
+            <v-divider></v-divider>
+            <v-card-title>Events</v-card-title>
+            <v-col v-if="card.events" v-for="(event,index) in card.events">
+              <v-card-title>Title: {{event.name}}</v-card-title>
+              <v-card-subtitle class="text-left "> Time: {{event.time}}</v-card-subtitle>
+              <div class="text-left ml-5 " v-if="event.description" v-for="(description,i) in event.description">
+                <div>{{description}}</div>
+              </div>
+              <v-divider></v-divider>
+            </v-col>
             <v-card-actions>
-              <v-avatar
-                size="60"
-                v-for="speaker in card.speakers"
-                class="mr-3"
-                :key="speaker._id">
-              <v-img
-                sizes="70"
-                :src=speaker.image
-                alt="John"
-              ></v-img>
-            </v-avatar>
-              <v-spacer></v-spacer>
+
               <v-btn outlined @click="editTItem">Edit</v-btn>
-              <v-btn outlined @click="deleteItem" >Delete</v-btn>
+              <v-btn outlined @click="deleteItem(card)" >Delete</v-btn>
             </v-card-actions>
                  </v-card>
         </v-col>
@@ -53,8 +52,15 @@ computed: {
   }
 },
   methods:{
+
     editTItem(event,value){
       this.$emit('clicked', value)
+    },
+    deleteItem(card){
+      console.log(JSON.stringify(card))
+      //deleteItem
+      this.$store.dispatch('deleteSession',card._id)
+
     }
   },
   mounted() {

@@ -42,14 +42,17 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+
 
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    'vue-toastification/nuxt'
+    'vue-toastification/nuxt',
+    // Simple usage
+    '@nuxtjs/moment',
   ],
   axios: {
     // proxy: true
