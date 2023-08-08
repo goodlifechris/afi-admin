@@ -132,7 +132,7 @@
       isLoading: false,
       start_time:'',
       end_time:'',
-      description:"",
+      description:null,
       title:"",
       events:[],
       date_start:"",
@@ -179,8 +179,12 @@
           let IsoString = "2023-08-24T08:30:00.000Z"
           let IsoDate = this.$moment(IsoString).format("dddd, Do MMM YYYY, h:mm:ss A")
           console.log("date is", IsoDate)
+          let descriptions =[]
 
-          let descriptions = this.description.split(",")
+          if(this.description){
+            descriptions=this.description.split(",")
+          }
+
           this.time = this.start_time + " - " + this.end_time
 
           //todo first get the event add it to events
